@@ -31,11 +31,15 @@ class InfoApi {
 
 
     static async BuscarUsuarios() {
-        await fetch(this.URLbase, {
+        const users = await fetch(this.URLbase, {
             method: "GET",
             headers: `${this.URLbase}/users`,
-            body: body.json()
         })
+            .then(resp => resp.json())
+            .then(resp => console.log(resp))
+        console.log(users)
+
+        return users
     }
 
 
