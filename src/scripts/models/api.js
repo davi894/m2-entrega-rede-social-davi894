@@ -1,6 +1,6 @@
 class InfoApi {
 
-    static URLbase = `https://m2-rede-social.herokuapp.com/api/users`
+    static URLbase = `https://m2-rede-social.herokuapp.com/api/`
 
     static IdUsuario = localStorage.getItem("RedeSocialUsers:Id")
 
@@ -8,37 +8,49 @@ class InfoApi {
 
     static headers = {
         "Content-Type": "application/json",
-        Authorization: ` Bearer ${this.token}`
+        Authorization: `Token ${this.token}`
     }
 
     static async Cadastro(body) {
-        await fetch(`${this.URLbase}/users/`, {
+        console.log(body)
+        const teste = await fetch(`${this.URLbase}users/`, {
             method: "POST",
-            headers: this.headers,
-            body: body.json(body)
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body)
         })
+            .then(resp => console.log(resp))
+            .catch(err => console.log(err))
 
+        // const data = await teste.json()
+        // console.log(data)
     }
-
 
     static async Login(body) {
-        await fetch(`${this.URLbase}/users/login/`, {
+        console.log(body)
+        const tokenUser = localStorage.getItem("RedeSocialUser:Token")
+        await fetch(`${this.URLbase}users/login`, {
             method: "POST",
             headers: this.headers,
-            body: body.json(body)
+            body: JSON.stringify(body)
         })
-            .then(resp => resp.json())
+            .then(resp => console.log(resp.json()))
             .then(resp => {
-                resp.token
-                resp.user_uuid
+                console.log(resp)
+                localStorage.setItem("RedeSocialUser:Id", resp.user_uuid)
+                localStorage.setItem("RedeSocialUser:Token", resp.token)
+                if (!tokenUser) { window.location.replace("./src/pages/homePageRedeSocial.html") }
+            })
+            .catch((err) => {
+                console.log(err)
             })
     }
-
 
     static async BuscarUsuarios() {
         const users = await fetch(this.URLbase, {
             method: "GET",
-            headers: `${this.URLbase}/users/`,
+            headers: `${this.URLbase}users`,
         })
             .then(resp => resp.json())
             .then(resp => console.log(resp))
@@ -47,18 +59,19 @@ class InfoApi {
         return users
     }
 
-
     static async BuscaUsuarioEspecifico() {
-        await fetch(this.URLbase, {
+        const usuarioEspecifico = await fetch(this.URLbase, {
             method: "GET",
-            headers: `${this.headers}/users/${this.IdUsuario}/`,
+            headers: `${this.headers}users/${this.IdUsuario}`,
         })
+
+        return usuarioEspecifico
     }
 
     static async SeguirUsuario(body) {
         await fetch(this.URLbase, {
             method: "POST",
-            headers: `${this.headers}/users/follow/`,
+            headers: `${this.headers}users/follow`,
             body: JSON.stringify(body)
         })
     }
@@ -66,42 +79,41 @@ class InfoApi {
     static async ParardeSeguirUsuario(IdDeixarSeguir) {
         await fetch(this.URLbase, {
             method: "DELETE",
-            headers: `${this.headers}/users/unfollow/${IdDeixarSeguir}/`,
+            headers: `${this.headers}users/unfollow/${IdDeixarSeguir}`,
         })
 
     }
 
-    static CriarPost(body) {
+    static async CriarPost(body) {
         await fetch(this.URLbase, {
             method: "POST",
-            headers: `${this.headers}/api/posts/`,
+            headers: `${this.headers}api/posts`,
             body: JSON.stringify(body)
         })
     }
 
-    static ListarPostes(numPage) {
-        const buscar = await fetch(this.URLbase, {
+    static async ListarPostes(numPage) {
+        const buscarPosts = await fetch(this.URLbase, {
             method: "GET",
-            headers: `${this.URLbase}/?page=${numPage}/`,
+            headers: `${this.URLbase}?page=${numPage}`,
         })
+        return buscarPosts
     }
 
-    static MarcarComoGostei() {
+    static async MarcarComoGostei() {
         await fetch(this.URLbase, {
             method: "POST",
-            headers: `${this.headers}/api/likes/`,
+            headers: `${this.headers}api/likes`,
             body: JSON.stringify(body)
         })
     }
 
-    static DeletarPost(IdPostDeletar) {
+    static async DeletarPost(IdPostDeletar) {
         await fetch(this.URLbase, {
             method: "DELETE",
-            headers: `${this.headers}/users/unfollow/${IdPostDeletar}/`,
+            headers: `${this.headers}users/unfollow/${IdPostDeletar}`,
         })
-
     }
-
 }
 
 export { InfoApi }
