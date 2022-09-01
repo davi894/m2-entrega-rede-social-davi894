@@ -12,7 +12,7 @@ class InfoApi {
     }
 
     static async Cadastro(body) {
-        await fetch(`${this.URLbase}/users`, {
+        await fetch(`${this.URLbase}/users/`, {
             method: "POST",
             headers: this.headers,
             body: body.json(body)
@@ -22,7 +22,7 @@ class InfoApi {
 
 
     static async Login(body) {
-        await fetch(`${this.URLbase}users/login`, {
+        await fetch(`${this.URLbase}/users/login/`, {
             method: "POST",
             headers: this.headers,
             body: body.json(body)
@@ -38,7 +38,7 @@ class InfoApi {
     static async BuscarUsuarios() {
         const users = await fetch(this.URLbase, {
             method: "GET",
-            headers: `${this.URLbase}/users`,
+            headers: `${this.URLbase}/users/`,
         })
             .then(resp => resp.json())
             .then(resp => console.log(resp))
@@ -51,38 +51,56 @@ class InfoApi {
     static async BuscaUsuarioEspecifico() {
         await fetch(this.URLbase, {
             method: "GET",
-            headers: `${this.headers}/users/${this.IdUsuario}`,
-            body: body.json()
+            headers: `${this.headers}/users/${this.IdUsuario}/`,
         })
     }
 
-    static async SeguirUsuario() {
+    static async SeguirUsuario(body) {
         await fetch(this.URLbase, {
             method: "POST",
-            headers: `${this.headers}users/follow`,
-            body: body.json()
+            headers: `${this.headers}/users/follow/`,
+            body: JSON.stringify(body)
         })
     }
 
     static async ParardeSeguirUsuario(IdDeixarSeguir) {
         await fetch(this.URLbase, {
             method: "DELETE",
-            headers: `${this.headers}users/unfollow/${IdDeixarSeguir}`,
-            body: body.json()
+            headers: `${this.headers}/users/unfollow/${IdDeixarSeguir}/`,
         })
 
     }
 
-    static CriarPost() { }
+    static CriarPost(body) {
+        await fetch(this.URLbase, {
+            method: "POST",
+            headers: `${this.headers}/api/posts/`,
+            body: JSON.stringify(body)
+        })
+    }
 
-    static buscarPost(numPage) {
+    static ListarPostes(numPage) {
         const buscar = await fetch(this.URLbase, {
             method: "GET",
-            headers: `${this.URLbase}/?page=${numPage}`,
+            headers: `${this.URLbase}/?page=${numPage}/`,
         })
     }
 
-    static Deletarpost() { }
+    static MarcarComoGostei() {
+        await fetch(this.URLbase, {
+            method: "POST",
+            headers: `${this.headers}/api/likes/`,
+            body: JSON.stringify(body)
+        })
+    }
+
+    static DeletarPost(IdPostDeletar) {
+        await fetch(this.URLbase, {
+            method: "DELETE",
+            headers: `${this.headers}/users/unfollow/${IdPostDeletar}/`,
+        })
+
+    }
 
 }
 
