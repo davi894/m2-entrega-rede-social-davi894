@@ -15,18 +15,23 @@ class InfoApi {
         await fetch(`${this.URLbase}/users`, {
             method: "POST",
             headers: this.headers,
-            body: body.json()
+            body: body.json(body)
         })
 
     }
 
 
-    static async Login() {
+    static async Login(body) {
         await fetch(`${this.URLbase}users/login`, {
             method: "POST",
             headers: this.headers,
-            body: body.json()
+            body: body.json(body)
         })
+            .then(resp => resp.json())
+            .then(resp => {
+                resp.token
+                resp.user_uuid
+            })
     }
 
 
@@ -43,10 +48,10 @@ class InfoApi {
     }
 
 
-    static async BuscaUsuarioEspecifico(IdUsuario) {
+    static async BuscaUsuarioEspecifico() {
         await fetch(this.URLbase, {
             method: "GET",
-            headers: `${this.headers}/users/${IdUsuario}`,
+            headers: `${this.headers}/users/${this.IdUsuario}`,
             body: body.json()
         })
     }
@@ -69,6 +74,15 @@ class InfoApi {
     }
 
     static CriarPost() { }
+
+    static buscarPost(numPage) {
+        const buscar = await fetch(this.URLbase, {
+            method: "GET",
+            headers: `${this.URLbase}/?page=${numPage}`,
+        })
+    }
+
+    static Deletarpost() { }
 
 }
 

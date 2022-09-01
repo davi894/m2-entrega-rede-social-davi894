@@ -1,0 +1,50 @@
+:root {
+  --btn-logarCadastrar: #4263eb;
+}
+
+#login,
+#cadastro {
+  display: flex;
+  margin-top: 12rem;
+  width: 19rem;
+  gap: 1rem;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#cadastro_cabecalho,
+#login_cabecalho {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+input {
+  width: 18rem;
+  padding: 0.5rem;
+}
+
+div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  padding: 0.5rem;
+}
+
+#logar,
+#cadastrar {
+  background-color: var(--btn-logarCadastrar);
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
