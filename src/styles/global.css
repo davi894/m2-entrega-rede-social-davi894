@@ -1,0 +1,15 @@
+:root {
+  --color-cabecalho: white;
+  --bg-cabecalho: black;
+
+  --bg-abrirPost: black;
+  --color-abrirPost: aliceblue;
+
+  --bg-paraSeguir_btn: rgb(255, 253, 253);
+  --color-paraSeguir_btn: rgb(0, 0, 0);
+
+  --bg-modal: rgb(129, 129, 129);
+
+  --bg-btnPostar: blue;
+  --color-btnPostar: aliceblue;
+}

@@ -1,0 +1,72 @@
+#btnDivPostar {
+  max-width: 24.4rem;
+  justify-content: flex-end;
+  display: flex;
+}
+.abrirPost {
+  background-color: var(--bg-abrirPost);
+  color: var(--color-abrirPost);
+}
+
+.paraSeguir_btn {
+  background-color: var(--bg-paraSeguir_btn);
+  color: var(--color-paraSeguir_btn);
+}
+
+#btnDivPostar {
+  max-width: 24.4rem;
+  justify-content: flex-end;
+  display: flex;
+}
+
+#btnDivPostar {
+  margin-top: 0.5rem;
+}
+
+#btnDivPostar {
+  margin-top: 0.5rem;
+}
+
+#btnDivPostar {
+  max-width: 24.4rem;
+  justify-content: flex-end;
+  display: flex;
+}
+
+#btnDivPostar {
+  margin-top: 0.5rem;
+}
+
+.like {
+  margin-right: 1rem;
+  max-width: 4rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sairModal {
+  position: absolute;
+  right: 2rem;
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+}
+
+#btnPostar {
+  background-color: var(--bg-btnPostar);
+  color: var(--color-btnPostar);
+  border: none;
+  padding: 0.5rem;
+}
+
+button {
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+#btnPostar {
+  background-color: var(--bg-btnPostar);
+  color: var(--color-btnPostar);
+  border: none;
+  padding: 0.5rem;
+}

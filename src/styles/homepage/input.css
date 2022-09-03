@@ -1,0 +1,46 @@
+textarea {
+    max-width: 24rem;
+    min-width: 24rem;
+  
+    font-size: 2rem;
+  
+    border: none;
+  
+    max-height: 11rem;
+    min-height: 11rem;
+  }
+  
+  input {
+    border: none;
+    padding: 0.4rem;
+  }
+  
+  input {
+    border: none;
+    padding: 0.4rem;
+  }
+  
+  textarea:focus,
+  input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+  
+  textarea {
+    max-width: 24rem;
+    min-width: 24rem;
+  
+    font-size: 2rem;
+  
+    border: none;
+  
+    max-height: 11rem;
+    min-height: 11rem;
+  }
+  
+  textarea:focus,
+  input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+  }
+  

@@ -1,8 +1,33 @@
+#cabecalho {
+  top: 0;
+  padding: 1rem;
+  width: 100%;
+  color: var(--color-cabecalho);
+  font-size: 1.5rem;
+  position: fixed;
+  background-color: var(--bg-cabecalho);
+}
+
+#tituloConteudoPost {
+  display: flex;
+  flex-direction: column;
+  max-width: 24.4rem;
+  gap: 0.3rem;
+  border: none;
+}
+
+h4 {
+  font-size: 2.5rem;
+} 
+
 h2 {
   font-size: 1.3rem;
 }
 
-h3,
-h4 {
+h3 {
   font-size: 1.5rem;
+}
+
+h3 {
+  font-weight: 900;
 }

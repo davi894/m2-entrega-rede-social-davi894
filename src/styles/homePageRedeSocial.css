@@ -1,76 +1,13 @@
-:root {
-  --color-cabecalho: white;
-  --bg-cabecalho: black;
-
-  --bg-abrirPost: black;
-  --color-abrirPost: aliceblue;
-
-  --bg-paraSeguir_btn: rgb(255, 253, 253);
-  --color-paraSeguir_btn: rgb(0, 0, 0);
-
-  --bg-modal: rgb(129, 129, 129);
-
-  --bg-btnPostar: blue;
-  --color-btnPostar: aliceblue;
-}
-
-#cabecalho {
-  top: 0;
-  padding: 1rem;
-  width: 100%;
-  color: var(--color-cabecalho);
-  font-size: 1.5rem;
-  position: fixed;
-  background-color: var(--bg-cabecalho);
-}
-
 main {
   margin-top: 7rem;
   margin-left: 1rem;
   margin-right: 44rem;
 }
 
-textarea {
-  max-width: 24rem;
-  min-width: 24rem;
-
-  font-size: 2rem;
-
-  border: none;
-
-  max-height: 11rem;
-  min-height: 11rem;
-}
-
-input {
-  border: none;
-  padding: 0.4rem;
-}
-
-input > #btnDivPostar {
-  max-width: 24.4rem;
-  justify-content: flex-end;
-  display: flex;
-}
-
-#tituloConteudoPost {
-  display: flex;
-  flex-direction: column;
-  max-width: 24.4rem;
-  gap: 0.3rem;
-  border: none;
-}
-
 .usuarioPost {
   display: flex;
   gap: 1rem;
   margin-bottom: 0.5rem;
-}
-
-textarea:focus,
-input:focus {
-  box-shadow: 0 0 0 0;
-  outline: 0;
 }
 
 img {
@@ -80,10 +17,6 @@ img {
 
 ul {
   width: 30rem;
-}
-
-#btnDivPostar {
-  margin-top: 0.5rem;
 }
 
 #posts {
@@ -96,16 +29,7 @@ ul {
 }
 
 li {
-  margin-top: 1rem;
-}
-
-h2 {
-  font-size: 1.3rem;
-}
-
-h3,
-h4 {
-  font-size: 1.5rem;
+  margin-top: 2rem;
 }
 
 aside {
@@ -113,50 +37,10 @@ aside {
   top: 5rem;
   left: 45rem;
 }
-
 .paraSeguir_li {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-#btnDivPostar {
-  max-width: 24.4rem;
-  justify-content: flex-end;
-  display: flex;
-}
-
-#btnDivPostar {
-  margin-top: 0.5rem;
-}
-
-.like {
-  margin-right: 1rem;
-  max-width: 4rem;
-  border-radius: 50%;
-  cursor: pointer;
-}
-textarea {
-  max-width: 24rem;
-  min-width: 24rem;
-
-  font-size: 2rem;
-
-  border: none;
-
-  max-height: 11rem;
-  min-height: 11rem;
-}
-
-input {
-  border: none;
-  padding: 0.4rem;
-}
-
-textarea:focus,
-input:focus {
-  box-shadow: 0 0 0 0;
-  outline: 0;
 }
 
 article {
@@ -183,48 +67,38 @@ article > div {
   margin-bottom: 1rem;
 }
 
-.sairModal {
-  position: absolute;
-  right: 2rem;
-  cursor: pointer;
-  width: 1rem;
-  height: 1rem;
+
+
+@media (max-width: 989px) {
+  aside {
+    left: 40rem;
+  }
+}
+@media (max-width: 933px) {
+  h4 {
+    display: none;
+  }
+  ul {
+    margin-top: 10rem;
+  }
+  #paraSeguir {
+    display: flex;
+    overflow-x: auto;
+  }
+  aside {
+    position: absolute;
+    left: 1rem;
+    top: 19rem;
+  }
+
+  main {
+    margin-right: 1rem;
+  }
 }
 
-#btnPostar {
-  background-color: var(--bg-btnPostar);
-  color: var(--color-btnPostar);
-  border: none;
-  padding: 0.5rem;
-}
-
-.abrirPost {
-  background-color: var(--bg-abrirPost);
-  color: var(--color-abrirPost);
-}
-
-.paraSeguir_btn {
-  background-color: var(--bg-paraSeguir_btn);
-  color: var(--color-paraSeguir_btn);
-}
-
-#btnDivPostar {
-  max-width: 24.4rem;
-  justify-content: flex-end;
-  display: flex;
-}
-
-#btnDivPostar {
-  margin-top: 0.5rem;
-}
-
-button {
-  cursor: pointer;
-  margin-right: 1rem;
-}
-#btnPostar {
-  background-color: var(--bg-btnPostar);
-  color: var(--color-btnPostar);
-  border: none;
-  padding: 0.5rem;
+@media (max-width: 673px) {
+  article {
+    position: fixed;
+    left: 11rem;
+  }
 }
