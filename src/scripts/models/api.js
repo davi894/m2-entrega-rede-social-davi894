@@ -1,117 +1,115 @@
+
 class InfoApi {
 
     static URLbase = `https://m2-rede-social.herokuapp.com/api/`
 
-    static IdUsuario = localStorage.getItem("RedeSocialUsers:Id")
+    static IdUsuario = localStorage.getItem("RedeSocialUser:Id")
 
-    static token = localStorage.getItem("RedeSocialUsers:Token")
+    static token = localStorage.getItem("RedeSocialUser:Token")
 
     static headers = {
         "Content-Type": "application/json",
         Authorization: `Token ${this.token}`
     }
-
-    static async Cadastro(body) {
-        console.log(body)
-        const teste = await fetch(`${this.URLbase}users/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(body)
-        })
-            .then(resp => console.log(resp))
-            .catch(err => console.log(err))
-
-        // const data = await teste.json()
-        // console.log(data)
-    }
-
-    static async Login(body) {
-        console.log(body)
-        const tokenUser = localStorage.getItem("RedeSocialUser:Token")
-        await fetch(`${this.URLbase}users/login`, {
-            method: "POST",
-            headers: this.headers,
-            body: JSON.stringify(body)
-        })
-            .then(resp => console.log(resp.json()))
-            .then(resp => {
-                console.log(resp)
-                localStorage.setItem("RedeSocialUser:Id", resp.user_uuid)
-                localStorage.setItem("RedeSocialUser:Token", resp.token)
-                if (!tokenUser) { window.location.replace("./src/pages/homePageRedeSocial.html") }
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
-
     static async BuscarUsuarios() {
-        const users = await fetch(this.URLbase, {
+        const users = await fetch(`${this.URLbase}users/`, {
             method: "GET",
-            headers: `${this.URLbase}users`,
+            headers: this.headers
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
-        console.log(users)
-
+            .then(resp => resp)
         return users
     }
 
-    static async BuscaUsuarioEspecifico() {
-        const usuarioEspecifico = await fetch(this.URLbase, {
+    static async BuscaUsuarioEspecifico(userUuid) {
+        const usuarioEspecifico = await fetch(`${this.URLbase}users/${userUuid}/`, {
             method: "GET",
-            headers: `${this.headers}users/${this.IdUsuario}`,
+            headers: this.headers,
         })
-
         return usuarioEspecifico
     }
 
     static async SeguirUsuario(body) {
-        await fetch(this.URLbase, {
+        console.log(body)
+        await fetch(`${this.URLbase}users/follow/`, {
             method: "POST",
-            headers: `${this.headers}users/follow`,
+            headers: this.headers,
             body: JSON.stringify(body)
-        })
+        }).then(resp => resp.json())
+            .then(resp => {
+                console.log(resp)
+            })
     }
 
-    static async ParardeSeguirUsuario(IdDeixarSeguir) {
-        await fetch(this.URLbase, {
+    static async ParardeSeguirUsuario(uuidFollow) {
+        await fetch(`${this.headers}users/unfollow/${uuidFollow}/`, {
             method: "DELETE",
-            headers: `${this.headers}users/unfollow/${IdDeixarSeguir}`,
+            headers: this.headers,
         })
 
     }
 
-    static async CriarPost(body) {
-        await fetch(this.URLbase, {
+    static async Cadastro(body) {
+        const teste = await fetch(`${this.URLbase}users/`, {
             method: "POST",
-            headers: `${this.headers}api/posts`,
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify(body)
         })
+            .then(resp => resp.json())
+            .catch(err => err)
     }
 
-    static async ListarPostes(numPage) {
-        const buscarPosts = await fetch(this.URLbase, {
-            method: "GET",
-            headers: `${this.URLbase}?page=${numPage}`,
+    static async Login(body) {
+        const tokenUser = localStorage.getItem("RedeSocialUser:Token")
+        await fetch(`${this.URLbase}users/login/`, {
+            method: "POST",
+            headers: this.headers,
+            body: JSON.stringify(body)
         })
+            .then(resp => resp.json())
+            .then(resp => {
+                localStorage.setItem("RedeSocialUser:Id", resp.user_uuid)
+                localStorage.setItem("RedeSocialUser:Token", resp.token)
+                if (tokenUser) { window.location.replace("../src/pages/homePageRedeSocial.html") }
+            })
+            .catch((err) => { err })
+    }
+
+    static async ListarPostes() {
+        const buscarPosts = await fetch(`${this.URLbase}posts/`, {
+            method: "GET",
+            headers: this.headers,
+        }).then(resp => resp.json())
+            .then(resp => resp)
         return buscarPosts
     }
 
-    static async MarcarComoGostei() {
-        await fetch(this.URLbase, {
+    static async CriarPost(body) {
+        await fetch(`${this.URLbase}posts/`, {
             method: "POST",
-            headers: `${this.headers}api/likes`,
+            headers: this.headers,
             body: JSON.stringify(body)
         })
     }
 
+    static async MarcarComoGostei(body) {
+        console.log(body)
+        await fetch(`${this.URLbase}likes/`, {
+            method: "POST",
+            headers: this.headers,
+            body: JSON.stringify(body)
+        })
+            .then(resp => resp.json())
+            .then(resp => console.log(resp))
+            .catch(err => console.log(err))
+    }
+
     static async DeletarPost(IdPostDeletar) {
-        await fetch(this.URLbase, {
+        await fetch(`${this.headers}users/unfollow/${IdPostDeletar}/`, {
             method: "DELETE",
-            headers: `${this.headers}users/unfollow/${IdPostDeletar}`,
+            headers: this.headers,
         })
     }
 }

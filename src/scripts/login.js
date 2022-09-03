@@ -1,8 +1,7 @@
-
 import { InfoApi } from "./models/api.js"
 
 class Logando {
-    static logar() {
+    static async logar() {
         const emailLogin = document.querySelector("#emailLogin")
         const senhaLogin = document.querySelector("#senhaLogin")
         const btnLogin = document.querySelector("#logar")

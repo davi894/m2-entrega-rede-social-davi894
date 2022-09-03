@@ -2,7 +2,6 @@ import { InfoApi } from "./models/api.js"
 
 const btnCadstro = document.querySelector("#cadastrar")
 
-
 class Cadastro {
 
     static async Cadastro() {
@@ -19,6 +18,9 @@ class Cadastro {
             work_at: cadastroTrabalhaCom.value,
             image: cadastroImage.value
         }
+        img
+        username
+        work_at
         console.log(body)
         await InfoApi.Cadastro(body)
     }

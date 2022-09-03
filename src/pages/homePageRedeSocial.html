@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/homePageRedeSocial.css">
+    <link rel="stylesheet" href="../styles/global.css">
     <title>Document</title>
 </head>
 
@@ -19,62 +20,41 @@
 
     <main>
         <section>
-            <div>
+            <div id="usuarioPost">
                 <img src="" alt="">
                 <div>
-                    <h2>nomeUsuario</h2>
-                    <span>seguidores</span>
+                    <h2>Marmotinha123</h2>
+                    <span>Develop</span>
                 </div>
-                <span>tipo de trabalho</span>
+                <span>567 seguidores</span>
             </div>
-            <div>
-
-                <textarea name="" id="" cols="30" rows="10" placeholder="Digite  que você está pensado..."></textarea>
-
+            <div id="tituloConteudoPost">
+                <input id="input_tituloConteudoPost" type="text" placeholder="Digite o título do post...">
+                <textarea id="textarea_tituloConteudoPost" style="resize: none" name="" id="" cols="30" rows="10"
+                    placeholder="Digite  que você está pensado..."></textarea>
             </div>
-            <div>
-                <button>Postar</button>
+            <div id="btnDivPostar">
+                <button id="btnPostar">Postar</button>
             </div>
         </section>
+        <h2 id="posts">Posts</h2>
         <ul>
-            <li>
-                <img src="" alt="">
-                <div>aaaaaaaaaaaaaaaa</div>
-            </li>
-            <li>
-                <img src="" alt="">
-                <div></div>
-            </li>
-            <li>
-                <img src="" alt="">
-                <div>aaaaaaaaaaaaaaaa</div>
-            </li>
-            <li>
-                <img src="" alt="">
-                <div>aaaaaaaaaaaaaaaa</div>
-            </li>
-            <li>
-                <img src="" alt="">
-                <div>aaaaaaaaaaaaaaaa</div>
-            </li>
-            <li>
-                <img src="" alt="">
-                <div>aaaaaaaaaaaaaaaaa</div>
-            </li>
-            <li>
-                <img src="" alt="">
-                <div>aaaaaaaaaaaaaaaa</div>
-            </li>
-            <li>
-                <img src="" alt="">
-                <div>aaaaaaaaaaaaaaaa</div>
-            </li>
 
         </ul>
 
+        <aside>
+            <h4>Sugestões para seguir</h4>
+            <ul id="paraSeguir">
+
+            </ul>
+        </aside>
     </main>
 
-    <script src=""></script>
+    <script type="module" src="../scripts/todosUsuarios.js"></script>
+    <script type="module" src="../scripts/criandoPost.js"></script>
+    <script type="module" src="../scripts/listarPostsEModal.js"></script>
+    <script type="module" src="../scripts/tresUsuariosAle.js"></script>
+    <script type="module" src="../scripts/pararSeguir.js"></script>
 </body>
 
 </html>
