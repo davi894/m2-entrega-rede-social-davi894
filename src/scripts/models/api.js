@@ -106,8 +106,8 @@ class InfoApi {
             .catch(err => console.log(err))
     }
 
-    static async DeletarPost(IdPostDeletar) {
-        await fetch(`${this.headers}users/unfollow/${IdPostDeletar}/`, {
+    static async degostarPost(IdPostDeslike) {
+        await fetch(`${this.headers}users/unfollow/${IdPostDeslike}/`, {
             method: "DELETE",
             headers: this.headers,
         })

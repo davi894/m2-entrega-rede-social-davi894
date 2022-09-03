@@ -1,4 +1,6 @@
 import { InfoApi } from "./models/api.js"
+import { deslike } from "./deslike.js"
+
 
 const arrayComentarios = await InfoApi.ListarPostes()
 //console.log(arrayComentarios)
@@ -11,6 +13,8 @@ async function renderizar() {
     const ulPosts = document.querySelector("ul")
 
     result.forEach((elem) => {
+        
+        deslike(elem.uuid)
 
         const li = document.createElement("li")
 
