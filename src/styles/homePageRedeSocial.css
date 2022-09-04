@@ -75,12 +75,15 @@ article > div {
 }
 @media (max-width: 933px) {
   h4 {
-    display: none;
+    font-size: 2.5rem;
+    margin-top: 11rem;
   }
+
   ul {
-    margin-top: 10rem;
+    margin-top: -1rem;
   }
   #paraSeguir {
+    gap: 2rem;
     display: flex;
     overflow-x: auto;
   }
@@ -99,5 +102,13 @@ article > div {
   article {
     position: fixed;
     left: 11rem;
+  }
+
+  #posts#posts {
+    margin-top: 13rem;
+  }
+
+  .paraSeguir_li {
+    flex-direction: column;
   }
 }
