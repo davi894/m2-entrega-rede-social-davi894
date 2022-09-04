@@ -63,13 +63,11 @@ class InfoApi {
             .then(resp => {
                 localStorage.setItem("RedeSocialUser:Id", resp.user_uuid)
                 localStorage.setItem("RedeSocialUser:Token", resp.token)
-                alert("Login com sucesso");
-
                 if (tokenUser) { window.location.replace("../src/pages/homePageRedeSocial.html") }
+                alert("Login com sucesso");
             })
             .catch((err) => {
-                alert(`${err}`);
-                window.location.replace("../../index.html")
+                alert(`email ou senha inválidos`);
             })
     }
     static async ListarPostes() {
