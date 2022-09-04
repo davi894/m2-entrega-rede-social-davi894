@@ -69,6 +69,7 @@ class InfoApi {
             })
             .catch((err) => {
                 alert(`${err}`);
+                window.location.replace("../../index.html")
             })
     }
     static async ListarPostes() {
