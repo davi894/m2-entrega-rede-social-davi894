@@ -14,7 +14,7 @@ class Cadastro {
             work_at: cadastroTrabalhaCom.value,
             image: cadastroImage.value
         }
-        // console.log(body)
+         console.log(body)
         await InfoApi.Cadastro(body)
     }
 }

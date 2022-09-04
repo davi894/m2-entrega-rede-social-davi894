@@ -8,6 +8,7 @@ async function renderizar() {
     //console.log(result)
     const ulPosts = document.querySelector("ul")
     result.forEach((elem) => {
+
         const li = document.createElement("li")
         const div = document.createElement("div")
         div.classList.add("usuarioPost")
@@ -62,6 +63,7 @@ async function renderizar() {
                 post_uuid: elem.uuid
             }
             await InfoApi.MarcarComoGostei(body)
+            deslike(elem.uuid)
         })
         const spanCurtidas = document.createElement("span")
         spanCurtidas.innerText = elem.likes.length

@@ -10,7 +10,7 @@ class Logando {
                 email: emailLogin.value,
                 password: senhaLogin.value,
             }
-            //console.log(body)
+            console.log(body)
             await InfoApi.Login(body)
         })
     }
