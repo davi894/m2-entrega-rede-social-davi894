@@ -24,6 +24,7 @@ ul {
 }
 
 #usuarioPost {
+  margin-bottom: 1rem;
   display: flex;
   gap: 0.6rem;
 }
@@ -66,8 +67,6 @@ article > div {
   gap: 1rem;
   margin-bottom: 1rem;
 }
-
-
 
 @media (max-width: 989px) {
   aside {
