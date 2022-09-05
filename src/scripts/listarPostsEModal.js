@@ -3,6 +3,8 @@ import { deslike } from "./deslike.js"
 const arrayComentarios = await InfoApi.ListarPostes()
 console.log(arrayComentarios)
 async function renderizar() {
+
+
     const body = document.querySelector("body")
     const result = arrayComentarios.results
     console.log(result)
@@ -66,7 +68,7 @@ async function renderizar() {
             deslike(elem.uuid)
         })
         const spanCurtidas = document.createElement("span")
-        spanCurtidas.innerText = elem.likes.length
+        spanCurtidas.innerText = elem.likes.lenght
         divConteudo.append(h3, p)
         divuser.append(h2, span)
         li.append(img, divuser, divConteudo, button, imgCoracaoVazio, spanCurtidas)

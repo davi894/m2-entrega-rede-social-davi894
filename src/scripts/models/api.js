@@ -20,7 +20,7 @@ class InfoApi {
             method: "GET",
             headers: this.headers,
         }).then(resp => resp.json())
-            .then(resp => console.log(resp))
+            .then(resp => resp)
         return usuarioEspecifico
     }
     static async SeguirUsuario(body) {

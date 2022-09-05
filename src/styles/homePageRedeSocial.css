@@ -90,7 +90,7 @@ article > div {
   aside {
     position: absolute;
     left: 1rem;
-    top: 19rem;
+    top: 20rem;
   }
 
   main {
@@ -98,14 +98,14 @@ article > div {
   }
 }
 
-@media (max-width: 673px) {
+@media (max-width: 699px) {
   article {
     position: fixed;
     left: 11rem;
   }
 
-  #posts#posts {
-    margin-top: 13rem;
+  #posts {
+    margin-top: 17rem;
   }
 
   .paraSeguir_li {

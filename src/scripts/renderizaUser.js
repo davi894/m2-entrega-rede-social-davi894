@@ -7,12 +7,15 @@ console.log(Usuario)
 
 async function USUARIO(dados) {
 
-    const divId = document.querySelector("#usuarioPost")
-    const img = document.createElement("img")
-    const div = document.createElement("div")
-    const h2 = document.createElement("h2")
-    const spanAt_Work = document.createElement("span")
-    const spanSeguidores = document.createElement("span")
+    const img = document.querySelector("#imagemUsuarioperfil")
+    const h2 = document.querySelector("#nomeUsuario")
+    const spanAt_Work = document.querySelector("#trabalho")
+    const spanSeguidores = document.querySelector("#seguidores")
+
+    img.src = usuario.image
+    h2.innerText = usuario.username
+    spanAt_Work.innerText = usuario.work_at
+    spanSeguidores.innerText = usuario.followers_amount
 }
 USUARIO()
 export { USUARIO }
