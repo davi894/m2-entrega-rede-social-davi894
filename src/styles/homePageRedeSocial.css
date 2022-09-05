@@ -10,6 +10,14 @@ main {
   margin-bottom: 0.5rem;
 }
 
+.imagensPerfis,
+#imagemUsuarioperfil,
+.imagensUsuariosSeguir {
+  height: 64px;
+  width: 64px;
+  object-fit: cover;
+}
+
 img {
   max-width: 4rem;
   border-radius: 50%;

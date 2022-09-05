@@ -1,11 +1,19 @@
 import { InfoApi } from "./models/api.js"
-async function deslike(uuidPost) {
+//console.log(await InfoApi.BuscarUsuarios())
 
-    console.log(uuidPost)
-    const btnDelike = document.querySelector(".like")
-    btnDelike.addEventListener("click", async (e) => {
-        console.log(e.target)
-        await InfoApi.degostarPost(uuidPost)
+const deslikesArrayComentarios = await InfoApi.ListarPostes()
+//console.log(deslikes.results)
+//console.log(deslikesArrayComentarios.results)
+const deslikando = deslikesArrayComentarios.results
+
+async function deslike() {
+
+
+    deslikando.forEach((elem) => {
+        console.log(elem.likes["uuid"])
     })
+
+    await InfoApi.degostarPost()
 }
+deslike()
 export { deslike } 

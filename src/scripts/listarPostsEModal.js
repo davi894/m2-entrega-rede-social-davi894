@@ -1,13 +1,12 @@
 import { InfoApi } from "./models/api.js"
 import { deslike } from "./deslike.js"
 const arrayComentarios = await InfoApi.ListarPostes()
-console.log(arrayComentarios)
+//console.log(arrayComentarios)
 async function renderizar() {
-
 
     const body = document.querySelector("body")
     const result = arrayComentarios.results
-    console.log(result)
+  //  console.log(result)
     const ulPosts = document.querySelector("ul")
     result.forEach((elem) => {
 
@@ -15,6 +14,11 @@ async function renderizar() {
         const div = document.createElement("div")
         div.classList.add("usuarioPost")
         const img = document.createElement("img")
+        img.classList.add("imagensPerfis")
+
+        if (elem.author["image"] == "") {
+            img.src = "../img/semFoto.png"
+        }
         img.src = elem.author["image"]
         const divuser = document.createElement("div")
         const h2 = document.createElement("h2")
@@ -68,7 +72,7 @@ async function renderizar() {
             deslike(elem.uuid)
         })
         const spanCurtidas = document.createElement("span")
-        spanCurtidas.innerText = elem.likes.lenght
+        spanCurtidas.innerText = elem.likes.length
         divConteudo.append(h3, p)
         divuser.append(h2, span)
         li.append(img, divuser, divConteudo, button, imgCoracaoVazio, spanCurtidas)

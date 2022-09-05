@@ -1,7 +1,7 @@
 import { InfoApi } from "./models/api.js"
-console.log(await InfoApi.BuscarUsuarios())
+//console.log(await InfoApi.BuscarUsuarios())
 const usuarios = await InfoApi.BuscarUsuarios()
-console.log(usuarios)
+//console.log(usuarios)
 async function usuarioAleatorio() {
     const todosUsuarios = usuarios.results
     const seguidorUm = (Math.random() * ((todosUsuarios.length - 1) - 1) + 1).toFixed()
@@ -13,6 +13,7 @@ async function usuarioAleatorio() {
             const li = document.createElement("li")
             li.classList.add("paraSeguir_li")
             const img = document.createElement("img")
+            img.classList.add("imagensUsuariosSeguir")
             img.src = element.image
             const div = document.createElement("div")
             const h2 = document.createElement("h2")

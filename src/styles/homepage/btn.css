@@ -6,6 +6,7 @@
 .abrirPost {
   background-color: var(--bg-abrirPost);
   color: var(--color-abrirPost);
+  border: none;
 }
 
 .paraSeguir_btn {
