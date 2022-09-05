@@ -1,4 +1,3 @@
-
 class InfoApi {
     static URLbase = `https://m2-rede-social.herokuapp.com/api/`
     static IdUsuario = localStorage.getItem("RedeSocialUser:Id")
@@ -16,11 +15,12 @@ class InfoApi {
             .then(resp => resp)
         return users
     }
-    static async BuscaUsuarioEspecifico(userUuid) {
-        const usuarioEspecifico = await fetch(`${this.URLbase}users/${userUuid}/`, {
+    static async BuscaUsuarioEspecifico() {
+        const usuarioEspecifico = await fetch(`${this.URLbase}users/${this.IdUsuario}/`, {
             method: "GET",
             headers: this.headers,
-        })
+        }).then(resp => resp.json())
+            .then(resp => console.log(resp))
         return usuarioEspecifico
     }
     static async SeguirUsuario(body) {
@@ -63,8 +63,10 @@ class InfoApi {
             .then(resp => {
                 localStorage.setItem("RedeSocialUser:Id", resp.user_uuid)
                 localStorage.setItem("RedeSocialUser:Token", resp.token)
-                if (tokenUser) { window.location.replace("../src/pages/homePageRedeSocial.html") }
-                alert("Login com sucesso");
+                if (tokenUser) {
+                    alert("Login com sucesso");
+                    window.location.replace("../src/pages/homePageRedeSocial.html")
+                }
             })
             .catch((err) => {
                 alert(`email ou senha inválidos`);

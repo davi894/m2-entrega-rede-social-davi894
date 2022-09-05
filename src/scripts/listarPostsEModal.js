@@ -1,11 +1,11 @@
 import { InfoApi } from "./models/api.js"
 import { deslike } from "./deslike.js"
 const arrayComentarios = await InfoApi.ListarPostes()
-//console.log(arrayComentarios)
+console.log(arrayComentarios)
 async function renderizar() {
     const body = document.querySelector("body")
     const result = arrayComentarios.results
-    //console.log(result)
+    console.log(result)
     const ulPosts = document.querySelector("ul")
     result.forEach((elem) => {
 
@@ -49,7 +49,7 @@ async function renderizar() {
             divdiv.append(img, div)
             article.append(divdiv, h2, pConteudo, spanSairModal)
             body.append(article)
-            spanSairModal.addEventListener("click", (e) => {
+            spanSairModal.addEventListener("click", () => {
                 const modal = document.querySelector("article")
                 modal.parentNode.removeChild(modal)
             })
@@ -57,7 +57,7 @@ async function renderizar() {
         const imgCoracaoVazio = document.createElement("img")
         imgCoracaoVazio.src = "../assets/heartBlack.png"
         imgCoracaoVazio.classList.add("like")
-        imgCoracaoVazio.addEventListener("click", async (e) => {
+        imgCoracaoVazio.addEventListener("click", async () => {
             imgCoracaoVazio.src = "../assets/heartRed.png"
             const body = {
                 post_uuid: elem.uuid

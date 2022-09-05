@@ -1,10 +1,12 @@
 import { InfoApi } from "./models/api.js"
-const usuarios = await InfoApi.Cadastro()
-//console.log(idUser)
-//console.log(usuarios)
-async function usuarioAleatorio(dados) {
-    const todosUsuarios = usuarios
-    // console.log(todosUsuarios)
+
+const usuario = await InfoApi.BuscaUsuarioEspecifico()
+console.log(usuario)
+const Usuario = usuario
+console.log(Usuario)
+
+async function USUARIO(dados) {
+
     const divId = document.querySelector("#usuarioPost")
     const img = document.createElement("img")
     const div = document.createElement("div")
@@ -12,5 +14,5 @@ async function usuarioAleatorio(dados) {
     const spanAt_Work = document.createElement("span")
     const spanSeguidores = document.createElement("span")
 }
-usuarioAleatorio()
-export { usuarioAleatorio }
+USUARIO()
+export { USUARIO }

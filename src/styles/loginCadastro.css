@@ -6,20 +6,34 @@ body {
   max-width: 100%;
 }
 
+header {
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+
+  height: 5rem;
+  width: 100vw;
+
+  color: var(--color-cabecalho);
+  background-color: var(--bg-cabecalho);
+}
+
+#nomeBlog {
+  margin: 1rem;
+}
+
 #login,
 #cadastro {
   display: flex;
-  margin-top: 12rem;
+  margin-top: 25rem;
   width: 19rem;
   gap: 1rem;
   justify-content: center;
   flex-direction: column;
 }
 
-#cadastro_cabecalho,
-#login_cabecalho {
+div {
   display: flex;
-  width: 100%;
   justify-content: space-between;
 }
 
@@ -32,23 +46,44 @@ input {
   padding: 0.5rem;
 }
 
-div {
-  display: flex;
-  justify-content: space-evenly;
-}
-
 button {
   padding: 0.5rem;
 }
 
 #logar,
 #cadastrar {
-  background-color: #4263eb;
   border: none;
   cursor: pointer;
+}
+#logar {
+  background-color: #262bc1;
+  margin-left: 0.7rem;
+  color: white;
+}
+
+#cadastrar {
+  background-color: #4263eb;
+  color: white;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+#buttons_LoginRegistro {
+  top: 1.3rem;
+  position: fixed;
+  right: 1rem;
+}
+
+#logando,
+#registro {
+  background-color: transparent;
+  border: none;
+}
+
+#logando > a,
+#registro > a {
+  color: white;
 }

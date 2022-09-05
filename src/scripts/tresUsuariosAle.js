@@ -1,7 +1,7 @@
 import { InfoApi } from "./models/api.js"
-//console.log(await InfoApi.BuscarUsuarios())
+console.log(await InfoApi.BuscarUsuarios())
 const usuarios = await InfoApi.BuscarUsuarios()
-//console.log(usuarios)
+console.log(usuarios)
 async function usuarioAleatorio() {
     const todosUsuarios = usuarios.results
     const seguidorUm = (Math.random() * ((todosUsuarios.length - 1) - 1) + 1).toFixed()

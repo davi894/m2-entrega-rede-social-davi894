@@ -1,5 +1,5 @@
 import { InfoApi } from "./models/api.js"
-await InfoApi.BuscarUsuarios(2)
+await InfoApi.BuscarUsuarios()
 async function renderizando(arrayCadastrados) {
     const result = arrayCadastrados.results
     result.forEach(element => {
