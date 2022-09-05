@@ -5,9 +5,15 @@ main {
 }
 
 .nomeDev {
+  position: absolute;
+    left: 5rem;
+    bottom: 7rem;
 }
 
 .trabalhoDev {
+  position: absolute;
+  left: 5rem;
+  bottom: 6rem;
 }
 .usuarioPost {
   display: flex;
@@ -43,6 +49,7 @@ ul {
 }
 
 li {
+  position: relative;
   margin-top: 2rem;
 }
 

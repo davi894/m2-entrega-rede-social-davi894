@@ -5,7 +5,7 @@ async function renderizar() {
 
     const body = document.querySelector("body")
     const result = arrayComentarios.results
-  //  console.log(result)
+    //  console.log(result)
     const ulPosts = document.querySelector("ul")
     result.forEach((elem) => {
 
@@ -71,6 +71,11 @@ async function renderizar() {
             }
             await InfoApi.MarcarComoGostei(body)
         })
+
+        imgCoracaoVazio.addEventListener("ondblclick", async () => {
+            await InfoApi.degostarPost(elem.uuid)
+        })
+
         const spanCurtidas = document.createElement("span")
         spanCurtidas.innerText = elem.likes.length
         divConteudo.append(h3, p)

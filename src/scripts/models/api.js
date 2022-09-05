@@ -24,21 +24,26 @@ class InfoApi {
         return usuarioEspecifico
     }
     static async SeguirUsuario(body) {
-        console.log(body)
+        //console.log(body)
         await fetch(`${this.URLbase}users/follow/`, {
             method: "POST",
             headers: this.headers,
             body: JSON.stringify(body)
         }).then(resp => resp.json())
             .then(resp => {
-                console.log(resp)
+                resp
+                /*  console.log(resp) */
             })
     }
     static async ParardeSeguirUsuario(uuidFollow) {
-        await fetch(`${this.headers}users/unfollow/${uuidFollow}/`, {
+        await fetch(`${this.headers}likes/${uuidFollow}/`, {
             method: "DELETE",
             headers: this.headers,
-        })
+        }).then(resp => resp.json())
+            .then(resp => {
+                resp
+                console.log(resp)
+            })
     }
     static async Cadastro(body) {
         const teste = await fetch(`${this.URLbase}users/`, {

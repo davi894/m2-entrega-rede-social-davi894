@@ -12,6 +12,7 @@
 .paraSeguir_btn {
   background-color: var(--bg-paraSeguir_btn);
   color: var(--color-paraSeguir_btn);
+  border: 1px black solid;
 }
 
 #btnDivPostar {
@@ -62,6 +63,7 @@
 
 button {
   cursor: pointer;
+  border: none;
   margin-right: 1rem;
 }
 
