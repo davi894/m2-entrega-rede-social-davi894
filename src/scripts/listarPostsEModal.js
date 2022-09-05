@@ -1,5 +1,4 @@
 import { InfoApi } from "./models/api.js"
-import { deslike } from "./deslike.js"
 const arrayComentarios = await InfoApi.ListarPostes()
 //console.log(arrayComentarios)
 async function renderizar() {
@@ -22,7 +21,9 @@ async function renderizar() {
         img.src = elem.author["image"]
         const divuser = document.createElement("div")
         const h2 = document.createElement("h2")
+        h2.classList.add("nomeDev")
         const span = document.createElement("span")
+        span.classList.add("trabalhoDev")
         h2.innerText = `${elem.author["username"]}`
         span.innerText = `${elem.author["work_at"]}`
         const divConteudo = document.createElement("div")
@@ -69,7 +70,6 @@ async function renderizar() {
                 post_uuid: elem.uuid
             }
             await InfoApi.MarcarComoGostei(body)
-            deslike(elem.uuid)
         })
         const spanCurtidas = document.createElement("span")
         spanCurtidas.innerText = elem.likes.length

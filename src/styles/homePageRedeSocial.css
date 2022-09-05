@@ -4,6 +4,11 @@ main {
   margin-right: 44rem;
 }
 
+.nomeDev {
+}
+
+.trabalhoDev {
+}
 .usuarioPost {
   display: flex;
   gap: 1rem;
@@ -106,10 +111,11 @@ article > div {
   }
 }
 
-@media (max-width: 699px) {
+@media (max-width: 852px) {
   article {
     position: fixed;
-    left: 11rem;
+    top: 8rem;
+    left: 5rem;
   }
 
   #posts {
@@ -118,5 +124,11 @@ article > div {
 
   .paraSeguir_li {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 414px) {
+  #btnDivPostar {
+    margin-left: 25rem;
   }
 }

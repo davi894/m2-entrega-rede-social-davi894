@@ -10,10 +10,7 @@ textarea {
 
 input {
   padding: 0.4rem;
-}
-
-input {
-  padding: 0.4rem;
+  width: 23rem
 }
 
 textarea:focus,

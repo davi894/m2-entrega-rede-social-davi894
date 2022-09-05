@@ -95,7 +95,7 @@ class InfoApi {
             body: JSON.stringify(body)
         })
             .then(resp => resp.json())
-            .then(resp => console.log(resp))
+            .then(resp => resp /*  console.log(resp) */)
             .catch(err => console.log(err))
     }
     static async degostarPost(IdPostDeslike) {

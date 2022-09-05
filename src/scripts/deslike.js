@@ -6,14 +6,16 @@ const deslikesArrayComentarios = await InfoApi.ListarPostes()
 //console.log(deslikesArrayComentarios.results)
 const deslikando = deslikesArrayComentarios.results
 
-async function deslike() {
+// async function deslike() {
 
 
-    deslikando.forEach((elem) => {
-        console.log(elem.likes["uuid"])
-    })
+//     deslikando.forEach(({ likes }) => {
+//         likes.forEach(({ uuid }) => {
+//             console.log(uuid)
+//         })
+//     })
 
-    await InfoApi.degostarPost()
-}
-deslike()
-export { deslike } 
+//     await InfoApi.degostarPost()
+// }
+//deslike()
+//export { deslike } 
